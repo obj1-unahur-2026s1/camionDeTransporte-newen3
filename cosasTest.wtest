@@ -1,9 +1,27 @@
 import cosas.*
 
-describe "group of test for cosas" {
+import camion.*
 
-  test "first test" {
-    assert.that(true)
+describe "group of test for camion" {
+
+  test "Si tenemos 10 ladrillos, el peso equivale a 20" {
+    paqueteDeLadrillos.nuevaCantidad(10)
+    assert.equals(paqueteDeLadrillos.peso(), 20)
   }
-
+  test "Bateria con misiles cargados, pesa 300"{
+    BateriaAntiaerea.cargarMisiles()
+    assert.equals(BateriaAntiaerea.peso(),300)
+  }
+  test "El contenedor portuario con un residuo radiactivo dentro, pesa 110"{
+    ContenedorPortuario.agregarCosa(ResiduosRadioactivos)
+    assert.equals(ContenedorPortuario.peso(), 110)
+  }
+  test "El embalaje de seguridad tiene el residuo radiactivo y pesa 30"{
+    EmbalajeDeSeguridad.cambiarCosaDentro(ResiduosRadioactivos)
+      assert.equals(EmbalajeDeSeguridad.peso(), 30)
+  }
+  test "El embalaje de seguridad tiene el residuo radiactivo y su nivel de peligro es de 100"{
+    EmbalajeDeSeguridad.cambiarCosaDentro(ResiduosRadioactivos)
+      assert.equals(EmbalajeDeSeguridad.nivelDePeligro(), 100)
+  }
 }
